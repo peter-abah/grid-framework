@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+@use "sass:math";
+
+$col-no: 12;
+
+// RESPONSIVE BREAKPOINTS
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1440px;
+
+
+// WIDTH FOR RESPONSIVE BREEAKPOINTS
+$sm-w: 540px;
+$md-w: 720px;
+$lg-w: 960px;
+$xl-w: 1140px;
+$xxl-w: 1320px;
+
+
+// CONTAINER CLASSES
+.container, .container-sm,
+.container-lg, .container-xl,
+.container-xxl, .container-fluid {
+  width: 100%;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: $sm) {
+  .container, .container-sm {
+    width: $sm-w;
+  }
+}
+
+@media screen and (min-width: $md) {
+  .container, .conainer-sm,
+  .container-md {
+    width: $md-w;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .container, .container-sm,
+  .container-md, .container-lg {
+    width: $lg-w;
+  }
+}
+
+@media screen and (min-width: $xl) {
+  .container, .container-sm,
+  .container-md, .container-lg,
+  .container-xl {
+    width: $xl-w;
+  }
+}
+
+@media screen and (min-width: $xxl) {
+  .container, .container-sm,
+  .container-md, .container-lg,
+  .container-xl, .container-xxl {
+    width: $xxl-w;
+  }
+}
+
+
+// GRID CLASSES
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.row > * {
+  margin: .5rem;
+}
+
+.col {
+  width: auto;
+}
+
+// loops from 1 to grid column number (e.g 12) and outputs
+// classes col-1 to the col-no and sets the width of the
+// column to a fraction ($i/$col-no) of the parent container
+
+@for $i from 1 through $col-no {
+  .col-#{$i} {
+    width: math.div($i, $col-no) * 100%;
+  }
+}
+
+// same code as above jsut that it only works at min width of
+// $sm and is stacked at below th breakpoint
+@media screen and (min-width: $sm) {
+  @for $i from 1 through $col-no {
+    .col-sm-#{$i} {
+      width: math.div($i, $col-no) * 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $sm) {
+  @for $i from 1 through $col-no {
+    .col-sm-#{$i} {
+      width: math.div($i, $col-no) * 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  @for $i from 1 through $col-no {
+    .col-lg-#{$i} {
+      width: math.div($i, $col-no) * 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $xl) {
+  @for $i from 1 through $col-no {
+    .col-xl-#{$i} {
+      width: math.div($i, $col-no) * 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $xxl) {
+  @for $i from 1 through $col-no {
+    .col-xxl-#{$i} {
+      width: math.div($i, $col-no) * 100%;
+    }
+  }
+}
+
+// CLASSES FOR ALIGNMENT OF GRID COLUMNS
+
+// justifys the cols according
+.justify-content-start { justify-content: flex-start; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-center { justify-content: center; }
+
+
+// aligns the columns accordingly
+.align-items-start { align-items: flex-start; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: flex-end;}
+
+
+// CLASSES FOR ORDERING OF GRID COLUMNS
+// orders the columns with the columns with lesser order numbers
+// coming first and the columns with greater order numbers at
+// the last
+
+.order-first { order: -$col-no; }
+.order-last { order: $col-no; }
+
+
+// loops from 1 to $col-no (12) and creates classes order-1 to order-$col-no
+// width a corresponding order property.
+// e.g for 5 it will create
+// order-5 { order: 5; }
+@for $i from 1 through $col-no {
+  .order-#{$i} { order: $i; }
+}
+
+
+// MARGIN UTILITY CLASSES
+
+.ms-auto { margin-left: auto; }
+.me-auto { margin-right: auto; }
+
+.mx-auto { 
+  margin-left: auto; 
+  margin-right: auto;
+}
