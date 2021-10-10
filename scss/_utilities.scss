@@ -7,3 +7,30 @@
   margin-left: auto; 
   margin-right: auto;
 }
+
+
+// FLEX UTILITY CLASSES
+.d-flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+.d-block { display: block; }
+
+
+// MISC UTILITIES
+.rounded-circle { border-radius: 50%; }
+.img-fluid { 
+  max-width: 100%;
+  height: auto;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
