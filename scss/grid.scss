@@ -3,6 +3,7 @@
 @use "sass:math";
 
 $col-no: 12;
+$gutter-w: 1.5rem;
 
 // RESPONSIVE BREAKPOINTS
 $sm: 576px;
@@ -25,7 +26,7 @@ $xxl-w: 1320px;
 .container-lg, .container-xl,
 .container-xxl, .container-fluid {
   width: 100%;
-  margin: 1rem auto;
+  margin: 0 auto;
   padding: 0 1rem;
 }
 
@@ -74,11 +75,20 @@ $xxl-w: 1320px;
 }
 
 .row > * {
-  margin: .5rem;
+  padding: 0 math.div($gutter-w, 2);
 }
 
-.col {
-  width: auto;
+.col { flex-grow: 1; }
+
+// loops from 1 to $col-no and sets width: 100% to
+// selectors .col-sm-* up to .col-xxl-* e.g
+// $i = 2 with outputs css rules from .col-sm-2 to .col-xxl-2
+@for $i from 1 through $col-no {
+  .col-sm-#{$i}, .col-md-#{$i},
+  .col-lg-#{$i}, .col-xl-#{$i},
+  .col-xxl-#{i} {
+    width: 100%;
+  }
 }
 
 // loops from 1 to grid column number (e.g 12) and outputs
@@ -92,7 +102,7 @@ $xxl-w: 1320px;
 }
 
 // same code as above jsut that it only works at min width of
-// $sm and is stacked at below th breakpoint
+// $sm and is stacked at below the breakpoint
 @media screen and (min-width: $sm) {
   @for $i from 1 through $col-no {
     .col-sm-#{$i} {
