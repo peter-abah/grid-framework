@@ -12,7 +12,7 @@ I used the approach used by bootstrap and the class names are the same.
   - [\_utilities.scss](#utilitiesscss)
   - [\_grid.scss](#gridscss)
   - [\_main.scss](#mainscss)
-- [What I learned](#what-i-learned)
+- [What I learnt](#what-i-learnt)
 
 # How to use
 - Copy the framework.css to your project.
@@ -67,5 +67,5 @@ fill the entire width and stack on top each other.
 ## \_main.scss
 This files just imports the partials
 
-## What I learned
+## What I learnt
 I used this project to practice my scss skills and also to understand Bootstrap better
