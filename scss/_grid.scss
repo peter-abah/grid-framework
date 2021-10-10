@@ -173,14 +173,3 @@ $xxl-w: 1320px;
 @for $i from 1 through $col-no {
   .order-#{$i} { order: $i; }
 }
-
-
-// MARGIN UTILITY CLASSES
-
-.ms-auto { margin-left: auto; }
-.me-auto { margin-right: auto; }
-
-.mx-auto { 
-  margin-left: auto; 
-  margin-right: auto;
-}
